@@ -1,9 +1,6 @@
 package com.techvify.Interview.entity.interview;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +12,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +28,10 @@ public class Question {
     private int programmingLanguageId;
 
     @NotBlank
-    private boolean question_type = true;
+    private boolean question_type;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "FW_id")
     private Framework frameworkID;
 
     @ManyToMany(fetch = FetchType.LAZY)
